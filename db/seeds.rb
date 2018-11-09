@@ -29,6 +29,11 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+##REVIEWS
+Review.create!(product_id:12, user_id: 1, description:"this is a nice bookshelf", rating: 5)
+Review.create!(product_id:11, user_id: 1, description:"i dont like it", rating: 1)
+Review.create!(product_id:10, user_id: 1, description:"it was just ok", rating: 2)
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."

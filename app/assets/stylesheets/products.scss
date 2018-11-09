@@ -85,4 +85,19 @@ main section.products-show {
   }
 }
 
+.reviews {
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 10px;
+
+  .name {
+  font-weight: bold;
+  }
+
+  .date {
+  font-size: .75em;
+  }
+
+}
+
 

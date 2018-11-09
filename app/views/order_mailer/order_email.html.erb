@@ -1,0 +1,6 @@
+<h2>Thank you for your order!!!</h2>
+<h4>Here is a summary of your purchased items:</h4>
+ <% @order.line_items.each do |item| %>
+<p><%= item.product.name %> x <%= item.quantity %></p>
+<% end %>
+<p>You paid: <%= @order.total_cents / 100.0 %> </p>

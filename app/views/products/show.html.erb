@@ -31,46 +31,43 @@
  <% if current_user %>
     <div class="row">
       <div class="col-sm-12">
-      <h4 class="page-header">Post a Review</h4>
-         <%= form_for [@product, @review] do |f| %>
-      <p>
-      <%= f.label :description%><br>
-      <%= f.text_field :description, class: 'form-control input-lg'%>
-      </p>
-       <p>
-      <%= f.label :rating%><br>
-      <%= f.select :rating, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]%>
-      </p>
-      <p>
-      <%= f.submit "Post", class: 'btn btn-primary' %>
-      </p>
-      <% end %>
+        <h4 class="page-header">Post a Review</h4>
+        <%= form_for [@product, @review] do |f| %>
+          <p>
+            <%= f.label :description%><br>
+            <%= f.text_field :description, class: 'form-control input-lg'%>
+          </p>
+           <p>
+            <%= f.label :rating%><br>
+            <%= f.select :rating, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]%>
+          </p>
+          <p>
+            <%= f.submit "Post", class: 'btn btn-primary' %>
+          </p>
+        <% end %>
+      </div>
     </div>
-  </div>
-    <% end %>
+  <% end %>
 
 
     <div class="row">
       <div class="col-sm-12">
-      <h4 class="page-header">Customer Reviews</h4>
-       <% @reviews.each do |r| %>
-       <div class="reviews">
-        <p class="name"><%= r.user.first_name %> <%= r.user.last_name %></p>
-
-          <p>"<%= r.description%>"</p>
-          <p> Rating: <%=r.rating%> out of 5</p>
-          <p class="date"><i><%=r.created_at%></i></p>
-          <% if current_user %>
-          <% if current_user.email == r.user.email %>
-          <%= link_to fa_icon('trash'), [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-          <% end %>
-          <% end %>
-      </div>
+        <h4 class="page-header">Customer Reviews</h4>
+         <% @reviews.each do |r| %>
+         <div class="reviews">
+            <p class="name"><%= r.user.first_name %> <%= r.user.last_name %></p>
+            <p>"<%= r.description%>"</p>
+            <p> Rating: <%=r.rating%> out of 5</p>
+            <p class="date"><i><%=r.created_at%></i></p>
+            <% if current_user %>
+              <% if current_user.email == r.user.email %>
+                <%= link_to fa_icon('trash'), [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
-
-
 
   </article>
 

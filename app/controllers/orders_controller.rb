@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+      # sends email to user, order is passed in, and the order_email method is called
       OrderMailer.order_email(order).deliver_later
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'

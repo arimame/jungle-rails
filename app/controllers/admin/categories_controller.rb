@@ -1,4 +1,6 @@
 class Admin::CategoriesController < ApplicationController
+
+  #admin acess
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD']
 
   def index
@@ -26,5 +28,4 @@ class Admin::CategoriesController < ApplicationController
       :name
     )
   end
-
 end
